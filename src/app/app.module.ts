@@ -10,6 +10,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToyService } from '../providers/ToyService'
+import { DetailPage } from '../pages/detail/detail';
+import { DetailPageModule } from '../pages/detail/detail.module';
 @NgModule({
   declarations: [
     MyApp,
@@ -20,13 +22,15 @@ import { ToyService } from '../providers/ToyService'
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    DetailPageModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     SearchPage,
-    ListPage
+    ListPage,
+    DetailPage
   ],
   providers: [
     StatusBar,

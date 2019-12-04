@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the DetailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Toy } from '../../models/product'
 
 @IonicPage()
 @Component({
@@ -15,11 +9,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DetailPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  toy: Toy;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DetailPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+    let image = navParams.data.toy.image;
+    let name = navParams.data.toy.name;
+    let price = navParams.data.toy.price;
+    this.toy = new Toy (name,price,image,0,0,'');
+  
   }
 
 }

@@ -13,14 +13,13 @@ export class ListPage  {
 
   toys: Toy[];
 
-  selectedToys:Toy[];
+  selectedToys:Toy[] = [];
   constructor(public navCtrl: NavController, private toyService: ToyService) {
   }
   ngOnInit() {
     this.toyService.getToys()
     .subscribe(toys => {
       this.toys = toys;
-      console.log(toys)
     });
   }
   itemTapped(event, toy) {
@@ -29,16 +28,23 @@ export class ListPage  {
     });
   }
   toogleAdd(event, toy) {
-    this.selectedToys+=toy
+
+    if (this.selectedToys.findIndex(toy)!=-1){
+      this.selectedToys.push(toy)
+      toy.cart = "add-circle"
+    } else {
+      this.selectedToys.splice(this.selectedToys.findIndex(toy), 1)
+      toy.cart = "add"
+    }
   }
   showSummary(){
     var text = ""
     var sum = 0
     for (var i=0;i<this.selectedToys.length;i++) {
-      text += this.selectedToys[i].name
-      sum += this.selectedToys[i].price*(1-this.selectedToys[i].price)/100
+      text += "\n " + this.selectedToys[i].name
+      sum += this.selectedToys[i].price*(100-this.selectedToys[i].discount)/100
     }
-    alert(' search submitted:'
+    alert(' Search submitted:'
         + text
         + "\n TOTAL: "+ sum
       );

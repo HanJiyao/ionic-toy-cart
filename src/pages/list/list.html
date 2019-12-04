@@ -11,7 +11,7 @@
       <ion-item-sliding >
         <ion-item color="none" *ngFor="let toy of toys">
           <ion-thumbnail item-left (click)="itemTapped($event, toy)">
-           {{toy.image}}
+           <img src="../assets/img/{{toy.image}}"/>
           </ion-thumbnail>
           <h2>
            {{toy.name}}
