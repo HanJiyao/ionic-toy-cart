@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Shop
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form>
+    <ion-list>
+      <ion-item-sliding >
+        <ion-item color="none" *ngFor="let toy of toys">
+          <ion-thumbnail item-left (click)="itemTapped($event, toy)">
+           {{toy.image}}
+          </ion-thumbnail>
+          <h2>
+           {{toy.name}}
+          </h2>
+          <p>
+            $ {{toy.price}}
+          </p>
+          <ion-badge color="danger" *ngIf="toy.discount != 0">{{toy.discount}} % off</ion-badge>
+          <ion-icon item-end color="primary" name={{toy.cart}} (click)="toogleAdd($event, toy)"></ion-icon>
+        </ion-item>
+        
+      </ion-item-sliding>
+    </ion-list>
+    <button ion-button color="positive" block (click)="showSummary()">
+      View Cart Summary Popup
+    </button>
+  </form>
+</ion-content>

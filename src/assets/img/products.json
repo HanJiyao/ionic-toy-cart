@@ -1,0 +1,5 @@
+[{ "name":"Star Wars R2-D2", "price":120, "image":"starwars.png", "discount":0, "rating":3, "cart":"add" },
+ { "name":"My Little Pony", "price":10, "image":"pony.png", "discount":5, "rating":2, "cart":"add" },
+ { "name":"Scooter Navy", "price":100, "image":"scooter.png", "discount":20, "rating":2, "cart":"add" },
+ { "name":"Batman", "price":20, "image":"batman.png", "discount":0, "rating":1, "cart":"add" }
+ ]

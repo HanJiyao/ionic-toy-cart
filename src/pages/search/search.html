@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Member
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding >
+  <form #submitExpenseForm="ngForm">
+    <ion-item >
+      <ion-label>
+        Email
+      </ion-label>
+      <ion-input 
+      type="text" placeholder="" [(ngModel)]="member.email" name="email" #email="ngModel" required>
+      </ion-input>
+    </ion-item>
+    <p ion-text *ngIf="email.invalid && submitted ==
+    true" color="danger" padding-left>
+    Email is required
+    </p> 
+    <ion-item >
+      <ion-label>
+        Preferred Delivery
+      </ion-label>
+      <ion-select  >
+        <ion-option *ngFor="let date of deliveryDates" [value]="date" 
+
+        >
+         {{date}} 
+        </ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item >
+      <ion-range 
+      min="500" max="5000" step="100" color="primary" 
+      [(ngModel)]="member.price" name="price">
+        <ion-label range-left>
+          Max price: $ {{price}}
+        </ion-label>
+      </ion-range>
+    </ion-item>  
+    <button ion-button color="positive" block  type="submit"
+    (click)="onSubmit(submitExpenseForm)">
+      Search
+    </button>
+  </form>
+</ion-content>
